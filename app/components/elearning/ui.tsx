@@ -63,12 +63,12 @@ export function TabBar({
 
 /* The content area under the tabs: a heading, the "Sample data" tag, then
    whatever the tab shows. */
-export function Panel({ title, children }: { title: string; children: React.ReactNode }) {
+export function Panel({ title, sample, children }: { title: string; sample: string; children: React.ReactNode }) {
   return (
     <section id="tab-panel" role="tabpanel" aria-label={title} className="py-10">
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <h2 className="font-display text-3xl font-bold">{title}</h2>
-        <span className="border border-mist bg-white px-3 py-1 text-sm text-slate">Sample data</span>
+        <span className="border border-mist bg-white px-3 py-1 text-sm text-slate">{sample}</span>
       </div>
       <div className="mt-6">{children}</div>
     </section>
@@ -119,7 +119,7 @@ export function Bar({ value, label }: { value: number; label: string }) {
       >
         <div className={`h-full ${value >= 75 ? 'bg-navy' : 'bg-crimson'}`} style={{ width: `${value}%` }} />
       </div>
-      <span className="w-12 text-right font-semibold tabular-nums">{value}%</span>
+      <span className="w-12 text-end font-semibold tabular-nums" dir="ltr">{value}%</span>
     </div>
   )
 }

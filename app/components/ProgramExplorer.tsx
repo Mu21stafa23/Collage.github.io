@@ -2,17 +2,19 @@
 
 import { useState } from 'react'
 import ProgramList from './ProgramList'
-import { fields, programs, type Field } from '../data/college'
+import { fieldNames, fields, programs, type Field } from '../data/college'
+import { ui, type Lang } from '../data/i18n'
 
 /* The departments page: the program list with a filter by field. */
-export default function ProgramExplorer() {
-  const [field, setField] = useState<Field | 'All'>('All')
-  const visible = field === 'All' ? programs : programs.filter((program) => program.field === field)
+export default function ProgramExplorer({ lang }: { lang: Lang }) {
+  const [field, setField] = useState<Field | 'all'>('all')
+  const t = ui[lang].departments
+  const visible = field === 'all' ? programs : programs.filter((program) => program.field === field)
 
   return (
     <>
-      <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filter programs by field">
-        {(['All', ...fields] as const).map((option) => (
+      <div className="flex flex-wrap items-center gap-2" role="group" aria-label={t.filterLabel}>
+        {(['all', ...fields] as const).map((option) => (
           <button
             key={option}
             type="button"
@@ -24,17 +26,17 @@ export default function ProgramExplorer() {
                 : 'border-mist bg-white text-ink hover:border-navy'
             }`}
           >
-            {option}
+            {option === 'all' ? t.all : fieldNames[option][lang]}
           </button>
         ))}
       </div>
 
       <p className="mt-6 text-slate" aria-live="polite">
-        Showing {visible.length} of {programs.length} programs
+        {t.showing(visible.length, programs.length)}
       </p>
 
       <div className="mt-4">
-        <ProgramList programs={visible} />
+        <ProgramList programs={visible} lang={lang} />
       </div>
     </>
   )

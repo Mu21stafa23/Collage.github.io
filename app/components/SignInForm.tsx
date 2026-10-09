@@ -2,34 +2,40 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { localize, ui, type Lang } from '../data/i18n'
 
-const roles = {
-  student: {
-    label: 'Student',
-    idLabel: 'Roll number',
-    idValue: 'DEMO-STUDENT',
-    href: '/e-learning/student',
-  },
-  teacher: {
-    label: 'Teacher',
-    idLabel: 'Teacher ID',
-    idValue: 'DEMO-TEACHER',
-    href: '/e-learning/teacher',
-  },
-}
-
-type Role = keyof typeof roles
+type Role = 'student' | 'teacher'
 
 /* A demo sign-in. The fields are filled in and read-only, and nothing is
    sent anywhere: the button simply opens the matching demo screen. */
-export default function SignInForm() {
+export default function SignInForm({ lang }: { lang: Lang }) {
   const [role, setRole] = useState<Role>('student')
+  const t = ui[lang].signIn
+
+  const roles = {
+    student: {
+      label: t.student,
+      heading: t.studentHeading,
+      idLabel: t.rollNumber,
+      idValue: 'DEMO-STUDENT',
+      button: t.studentButton,
+      href: localize('/e-learning/student', lang),
+    },
+    teacher: {
+      label: t.teacher,
+      heading: t.teacherHeading,
+      idLabel: t.teacherId,
+      idValue: 'DEMO-TEACHER',
+      button: t.teacherButton,
+      href: localize('/e-learning/teacher', lang),
+    },
+  }
   const current = roles[role]
 
   return (
     <div className="border border-mist bg-white p-6 sm:p-10">
-      <div role="tablist" aria-label="Sign in as" className="grid grid-cols-2 border border-mist">
-        {(Object.keys(roles) as Role[]).map((key) => (
+      <div role="tablist" aria-label={t.tabsLabel} className="grid grid-cols-2 border border-mist">
+        {(['student', 'teacher'] as const).map((key) => (
           <button
             key={key}
             type="button"
@@ -45,7 +51,7 @@ export default function SignInForm() {
         ))}
       </div>
 
-      <h2 className="mt-8 font-display text-3xl font-bold">{current.label} sign in</h2>
+      <h2 className="mt-8 font-display text-3xl font-bold">{current.heading}</h2>
 
       <div className="mt-6 space-y-5">
         <label className="block">
@@ -54,17 +60,19 @@ export default function SignInForm() {
             type="text"
             value={current.idValue}
             readOnly
-            className="mt-2 block w-full border border-mist bg-paper px-4 py-3 text-slate"
+            dir="ltr"
+            className={`mt-2 block w-full border border-mist bg-paper px-4 py-3 text-slate ${lang === 'ar' ? 'text-right' : ''}`}
           />
         </label>
 
         <label className="block">
-          <span className="font-medium">Password</span>
+          <span className="font-medium">{t.password}</span>
           <input
             type="text"
             value="demo"
             readOnly
-            className="mt-2 block w-full border border-mist bg-paper px-4 py-3 text-slate"
+            dir="ltr"
+            className={`mt-2 block w-full border border-mist bg-paper px-4 py-3 text-slate ${lang === 'ar' ? 'text-right' : ''}`}
           />
         </label>
       </div>
@@ -73,12 +81,10 @@ export default function SignInForm() {
         href={current.href}
         className="mt-8 block rounded-md bg-crimson px-6 py-3 text-center font-semibold text-white transition-colors hover:bg-ink"
       >
-        Sign in as demo {current.label.toLowerCase()}
+        {current.button}
       </Link>
 
-      <p className="mt-5 text-sm leading-6 text-slate">
-        This is a demo account. The fields cannot be edited and nothing is sent or saved.
-      </p>
+      <p className="mt-5 text-sm leading-6 text-slate">{t.note}</p>
     </div>
   )
 }

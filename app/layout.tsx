@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Zilla_Slab, Public_Sans } from "next/font/google";
+import { Zilla_Slab, Public_Sans, Readex_Pro } from "next/font/google";
 import "./globals.css";
-import ProjectNotice from "./components/ProjectNotice";
-import SiteHeader from "./components/SiteHeader";
-import SiteFooter from "./components/SiteFooter";
 
 const zillaSlab = Zilla_Slab({
   variable: "--font-zilla",
@@ -14,6 +11,12 @@ const zillaSlab = Zilla_Slab({
 const publicSans = Public_Sans({
   variable: "--font-public",
   subsets: ["latin"],
+});
+
+// Used for Arabic text, which the two fonts above do not cover.
+const readexPro = Readex_Pro({
+  variable: "--font-readex",
+  subsets: ["arabic"],
 });
 
 const description =
@@ -46,13 +49,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${zillaSlab.variable} ${publicSans.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col">
-        <ProjectNotice />
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
-      </body>
+    <html
+      lang="en"
+      className={`${zillaSlab.variable} ${publicSans.variable} ${readexPro.variable} h-full antialiased`}
+    >
+      {/* Each page brings its own header and footer through SiteShell,
+          because they depend on the page's language. */}
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }

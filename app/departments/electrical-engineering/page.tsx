@@ -1,10 +1,15 @@
 import type { Metadata } from 'next'
-import DepartmentPage from '../../components/DepartmentPage'
+import SiteShell from '@/app/components/SiteShell'
+import DepartmentScreen from '@/app/screens/DepartmentScreen'
 
 export const metadata: Metadata = {
-  title: 'Electrical Engineering',
+  title: "Electrical Engineering",
 }
 
-export default function ElectricalEngineeringPage() {
-  return <DepartmentPage slug="electrical-engineering" />
+export default function Page() {
+  return (
+    <SiteShell lang="en" path="/departments/electrical-engineering">
+      <DepartmentScreen slug="electrical-engineering" lang="en" />
+    </SiteShell>
+  )
 }

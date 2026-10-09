@@ -9,9 +9,10 @@
   --color-mist: #dbe2ee; /* borders and dividers */
   --color-slate: #55627a; /* secondary text */
 
-  /* Type: Zilla Slab for headings, Public Sans for everything else. */
-  --font-display: var(--font-zilla), Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-public), "Segoe UI", Tahoma, sans-serif;
+  /* Type: Zilla Slab for headings, Public Sans for everything else.
+     Neither has Arabic letters, so Arabic text falls through to Readex Pro. */
+  --font-display: var(--font-zilla), var(--font-readex), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-public), var(--font-readex), "Segoe UI", Tahoma, sans-serif;
 }
 
 html {
@@ -28,6 +29,13 @@ body {
   outline: 3px solid var(--color-crimson);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+/* Arabic letters are taller and need more room between lines than the
+   tight headings used for English. */
+[lang="ar"] :is(h1, h2, h3, blockquote) {
+  line-height: 1.5;
+  letter-spacing: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
