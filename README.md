@@ -4,6 +4,8 @@ A website and e-learning concept for Cambridge International College Sudan. It b
 
 This is a student project. It is not the official website of the college.
 
+**Live site:** https://cic-sudan-graduation-project.vercel.app ([Arabic](https://cic-sudan-graduation-project.vercel.app/ar))
+
 ![Homepage preview](./docs/preview.jpg)
 
 ## Pages
