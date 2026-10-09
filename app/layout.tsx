@@ -20,7 +20,7 @@ const readexPro = Readex_Pro({
 });
 
 const description =
-  "A website and e-learning concept for Cambridge International College Sudan. Graduation project by Mustafa Hamad ElAmin.";
+  "A website and e-learning concept for Cambridge International College Sudan. A graduation project by students of the college.";
 
 export const metadata: Metadata = {
   title: {

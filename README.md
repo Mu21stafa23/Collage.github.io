@@ -1,6 +1,6 @@
 # Cambridge International College Sudan — graduation project
 
-A website and e-learning concept for Cambridge International College Sudan, built as my graduation project and rebuilt here with Next.js and Tailwind CSS.
+A website and e-learning concept for Cambridge International College Sudan. It began as a graduation project by a team of three students, and is rebuilt here with Next.js and Tailwind CSS.
 
 This is a student project. It is not the official website of the college.
 

@@ -4,7 +4,7 @@ import AboutScreen from '@/app/screens/AboutScreen'
 
 export const metadata: Metadata = {
   title: { absolute: 'عن الكلية | كلية كامبردج العالمية - السودان' },
-  description: 'موقع ونظام تعليم إلكتروني تجريبي لكلية كامبردج العالمية - السودان. مشروع تخرج من إعداد مصطفى حمد الأمين.',
+  description: 'موقع ونظام تعليم إلكتروني تجريبي لكلية كامبردج العالمية - السودان. مشروع تخرج من إعداد طلاب الكلية.',
 }
 
 export default function Page() {

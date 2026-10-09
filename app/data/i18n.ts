@@ -16,9 +16,9 @@ export function localize(path: string, lang: Lang) {
 
 const en = {
   languageName: 'English',
-  notice: 'Graduation project by Mustafa Hamad ElAmin. This is not the official website of the college.',
+  notice: 'A graduation project by students of the college. This is not the official website of the college.',
   footerNote: (year: number) =>
-    `Graduation project by Mustafa Hamad ElAmin, ${year}. Not affiliated with the college's official website.`,
+    `A graduation project by students of the college, ${year}. Not affiliated with the college's official website.`,
   nav: { home: 'Home', about: 'About', departments: 'Departments', contact: 'Contact', elearning: 'E-learning' },
   menu: { open: 'Open menu', close: 'Close menu' },
   homeAria: 'Cambridge International College Sudan, home',
@@ -179,8 +179,8 @@ const en = {
 
 const ar: typeof en = {
   languageName: 'العربية',
-  notice: 'مشروع تخرج من إعداد مصطفى حمد الأمين. هذا ليس الموقع الرسمي للكلية.',
-  footerNote: (year) => `مشروع تخرج من إعداد مصطفى حمد الأمين، ${year}. غير تابع للموقع الرسمي للكلية.`,
+  notice: 'مشروع تخرج من إعداد طلاب الكلية. هذا ليس الموقع الرسمي للكلية.',
+  footerNote: (year) => `مشروع تخرج من إعداد طلاب الكلية، ${year}. غير تابع للموقع الرسمي للكلية.`,
   nav: { home: 'الرئيسية', about: 'عن الكلية', departments: 'الأقسام', contact: 'تواصل معنا', elearning: 'التعليم الإلكتروني' },
   menu: { open: 'افتح القائمة', close: 'أغلق القائمة' },
   homeAria: 'كلية كامبردج العالمية - السودان، الصفحة الرئيسية',

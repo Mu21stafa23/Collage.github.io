@@ -4,7 +4,7 @@ import DepartmentScreen from '@/app/screens/DepartmentScreen'
 
 export const metadata: Metadata = {
   title: { absolute: 'الهندسة المدنية | كلية كامبردج العالمية - السودان' },
-  description: 'موقع ونظام تعليم إلكتروني تجريبي لكلية كامبردج العالمية - السودان. مشروع تخرج من إعداد مصطفى حمد الأمين.',
+  description: 'موقع ونظام تعليم إلكتروني تجريبي لكلية كامبردج العالمية - السودان. مشروع تخرج من إعداد طلاب الكلية.',
 }
 
 export default function Page() {
