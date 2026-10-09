@@ -10,7 +10,7 @@ This is a student project. It is not the official website of the college.
 
 | Route | Page |
 | :-- | :-- |
-| `/` | Home: introduction, vision, programs, e-learning and accreditation |
+| `/` | Home: introduction, quick facts, vision, programs by field, e-learning, accreditation and contact |
 | `/about` | About the college |
 | `/departments` | All six degree programs, with a filter by field |
 | `/departments/<program>` | One page for each of the six programs |
@@ -46,6 +46,7 @@ app/
 │   ├── SiteHeader.tsx      # Logo, navigation and mobile menu
 │   ├── SiteFooter.tsx      # Location, contact and links
 │   ├── PageHeader.tsx      # Navy title band on inner pages
+│   ├── FieldCards.tsx      # Programs grouped by field, on the home page
 │   ├── ProgramList.tsx     # The list of degree programs
 │   ├── ProgramExplorer.tsx # The list plus the filter by field
 │   ├── DepartmentPage.tsx  # Layout shared by the program pages
