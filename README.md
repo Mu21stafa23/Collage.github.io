@@ -12,14 +12,13 @@ This is a student project. It is not the official website of the college.
 | :-- | :-- |
 | `/` | Home: introduction, vision, programs, e-learning and accreditation |
 | `/about` | About the college |
-| `/departments` | All six degree programs |
-| `/departments/information-technology` | Information Technology |
-| `/departments/civil-engineering` | Civil Engineering |
+| `/departments` | All six degree programs, with a filter by field |
+| `/departments/<program>` | One page for each of the six programs |
 | `/e-learning` | Sign-in screen with a student / teacher switch |
-| `/e-learning/student` | Student screen: lectures, classes, attendance, assignments, calendar, notes |
-| `/e-learning/teacher` | Teacher screen: lectures, classes, attendance, assignments, reports, notes |
+| `/e-learning/student` | Student screen: overview, lectures, classes, attendance, assignments, calendar, notes |
+| `/e-learning/teacher` | Teacher screen: overview, lectures, classes, attendance, assignments, reports, notes |
 
-The e-learning part is a demo. The sign-in fields are filled in and read-only, nothing is sent or saved, and the tables show sample data.
+The e-learning part is a working demo. A student can join a class, move an assignment from started to submitted, and write notes. A teacher can start a class, take attendance and post notes to a class. It all runs in the browser with sample data: the sign-in fields are read-only, and nothing is sent or saved.
 
 ## Built with
 
@@ -43,24 +42,29 @@ Then open [http://localhost:3000](http://localhost:3000).
 app/
 ├── data/college.ts        # Address, contacts, programs and accreditation
 ├── components/
-│   ├── ProjectNotice.tsx  # "Graduation project" bar on every page
-│   ├── SiteHeader.tsx     # Logo, navigation and mobile menu
-│   ├── SiteFooter.tsx     # Location, contact and links
-│   ├── PageHeader.tsx     # Navy title band on inner pages
-│   ├── ProgramList.tsx    # The list of degree programs
-│   ├── DepartmentPage.tsx # Layout shared by the department pages
-│   ├── SignInForm.tsx     # Demo sign-in
-│   └── Dashboard.tsx      # Profile, tabs and tables for e-learning
-├── about/                 # /about
-├── departments/           # /departments and the two program pages
-├── e-learning/            # Sign-in, student and teacher screens
-├── layout.tsx             # Fonts, header and footer around every page
-├── page.tsx               # Home
-└── globals.css            # Colors and fonts
-public/                    # Logo, campus photo and accreditation logos
+│   ├── ProjectNotice.tsx   # "Graduation project" bar on every page
+│   ├── SiteHeader.tsx      # Logo, navigation and mobile menu
+│   ├── SiteFooter.tsx      # Location, contact and links
+│   ├── PageHeader.tsx      # Navy title band on inner pages
+│   ├── ProgramList.tsx     # The list of degree programs
+│   ├── ProgramExplorer.tsx # The list plus the filter by field
+│   ├── DepartmentPage.tsx  # Layout shared by the program pages
+│   ├── SignInForm.tsx      # Demo sign-in
+│   └── elearning/
+│       ├── StudentDashboard.tsx
+│       ├── TeacherDashboard.tsx
+│       └── ui.tsx          # Tabs, cards, badges and bars both screens share
+├── about/                  # /about
+├── departments/            # /departments and one folder per program
+├── e-learning/             # Sign-in, student and teacher screens
+├── layout.tsx              # Fonts, header and footer around every page
+├── not-found.tsx           # Shown for addresses that do not exist
+├── page.tsx                # Home
+└── globals.css             # Colors and fonts
+public/                     # Logo, campus photo, accreditation logos, og.jpg
 ```
 
-To add a program, add an entry to `programs` in `app/data/college.ts`. To give it its own page, create a folder under `app/departments/` and set the entry's `href`.
+To add a program, add an entry to `programs` in `app/data/college.ts`, then create a folder with the same name as its `slug` under `app/departments/`, copying the `page.tsx` of an existing program.
 
 ## The original version
 

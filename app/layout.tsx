@@ -16,13 +16,28 @@ const publicSans = Public_Sans({
   subsets: ["latin"],
 });
 
+const description =
+  "A website and e-learning concept for Cambridge International College Sudan. Graduation project by Mustafa Hamad ElAmin.";
+
 export const metadata: Metadata = {
   title: {
     default: "Cambridge International College Sudan | Graduation project",
     template: "%s | Cambridge International College Sudan",
   },
-  description:
-    "A website and e-learning concept for Cambridge International College Sudan. Graduation project by Mustafa Hamad ElAmin.",
+  description,
+  // The picture shown when the site's link is shared.
+  openGraph: {
+    title: "Cambridge International College Sudan",
+    description,
+    type: "website",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Cambridge International College Sudan, graduation project" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cambridge International College Sudan",
+    description,
+    images: ["/og.jpg"],
+  },
 };
 
 export default function RootLayout({

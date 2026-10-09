@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import ProgramList from './components/ProgramList'
-import { accreditation, college } from './data/college'
+import { accreditation, college, programs } from './data/college'
 
 export default function Home() {
   return (
@@ -82,7 +82,7 @@ export default function Home() {
             Six degree programs across four fields.
           </p>
           <div className="mt-10">
-            <ProgramList />
+            <ProgramList programs={programs} />
           </div>
         </div>
       </section>

@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import DepartmentPage from '../../components/DepartmentPage'
 
 export const metadata: Metadata = {
-  title: 'Civil Engineering',
+  title: 'Accounting',
 }
 
-export default function CivilEngineeringPage() {
-  return <DepartmentPage slug="civil-engineering" />
+export default function AccountingPage() {
+  return <DepartmentPage slug="accounting" />
 }
